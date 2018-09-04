@@ -1,56 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>BOILERMAKER</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
+
+const Navbar = () => {
+  return (
+    <nav id="large-navigation">
+      <ul id="#nav-items">
+        <li className="nav-icon"><a href="#top-of-page">Home</a></li>
+        <li className="nav-icon"><a href="#music">Music</a></li>
+        <li className="nav-icon"><a href="#development">Development</a></li>
+        <li className="nav-icon"><a href="#contact">Contact</a></li>
+
+        <li className="social-icon"><a href="https://github.com/veryspry" target="_blank" > <i className="fa fa-github" /></a></li>
+        <li className="social-icon"><a href="https://twitter.com/MattEhlinger" target="_blank" > <i className="fa fa-twitter" /></a></li>
+        <li className="social-icon" ><a href="https://www.instagram.com/veryspry/" target="_blank" > <i className="fa fa-instagram" /></a></li>
+      </ul>
     </nav>
-    <hr />
-  </div>
-)
-
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.user.id
-  }
+  )
 }
 
-const mapDispatch = dispatch => {
-  return {
-    handleClick() {
-      dispatch(logout())
-    }
-  }
-}
-
-export default connect(mapState, mapDispatch)(Navbar)
-
-/**
- * PROP TYPES
- */
-Navbar.propTypes = {
-  handleClick: PropTypes.func.isRequired,
-  isLoggedIn: PropTypes.bool.isRequired
-}
+export default Navbar
