@@ -197,7 +197,6 @@ router.put('/update/music/:id', async (req, res, next) => {
       next(err)
     }
   })
-
 })
 
 /* ---------------------------------------------------------------
@@ -216,6 +215,38 @@ router.post('/add/resource', async (req, res, next) => {
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')
+    next(err)
+  }
+})
+
+router.put('/update/resource/:id', async (req, res, next) => {
+  try {
+    const response = await Resource.update({
+      name: req.body.name,
+      resourceUrl: req.body.resourceUrl,
+      dayId: req.body.dayId,
+    }, {
+      where: {id: req.params.id},
+      returning: true,
+      plain: true,
+    })
+    res.status(201).send(response)
+  } catch(err) {
+    res.status(500).send('Sorry, edit to add this')
+    next(err)
+  }
+})
+
+router.delete('/delete/resource/:id', async (req, res, next) => {
+  try {
+    const response = await Resource.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(202).send('deleted!')
+  } catch(err) {
+    res.status(500).send('Sorry, unable to delete this')
     next(err)
   }
 })

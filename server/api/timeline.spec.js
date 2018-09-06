@@ -195,6 +195,19 @@ describe('Timeline Routes', () => {
 
   describe('resource routes', () => {
 
+    let newResource
+
+    beforeEach(async () => {
+      newResource = await request(app)
+      .post('/api/timeline/add/resource')
+      .send({
+        name: 'a very testy resoucre',
+        resourceUrl: 'http://thecoolesturl.com',
+        dayId: newDay.body.id
+      })
+      .expect(201)
+    })
+
     it('POST /add/resource', async () => {
       // add a resource for the day
       const res = await request(app)
@@ -209,5 +222,25 @@ describe('Timeline Routes', () => {
       expect(addedResource.dayId).to.be.equal(newDay.body.id)
     })
 
+    it('PUT updates a resource', async () => {
+      const res = await request(app)
+        .put(`/api/timeline/update/resource/${newResource.body.id}`)
+        .send({
+          name: 'a very tested & updated resoucre',
+          resourceUrl: 'http://thecoolesturl.com',
+          dayId: newDay.body.id
+        })
+        .expect(201)
+      const updatedResource = await Resource.findById(newResource.body.id)
+      expect(updatedResource.name).to.equal(res.body[1].name)
+    })
+
+    it('DELETE, deletes a resource', async () => {
+      const res = await request(app)
+        .delete(`/api/timeline/delete/resource/${newResource.body.id}`)
+        .expect(202)
+      const deletedResource = await Resource.findById(newResource.body.id)
+      expect(deletedResource).to.equal(null)
+    })
   }) // end PUT /api/timeline/ coffee, music, resource
 }) // end timeline routes
