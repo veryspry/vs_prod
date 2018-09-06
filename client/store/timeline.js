@@ -121,7 +121,7 @@ const addResource = (name, resourceUrl, dayId) => {
 }
 
 const UpdateDay = (dayId, dayData) => {
-  console.log('inside Updat day thunk');
+  console.log('inside Update day thunk');
   return async dispatch => {
     try {
       await axios({
@@ -142,7 +142,10 @@ const UpdateDay = (dayId, dayData) => {
   }
 }
 
-const defaultState = []
+const defaultState = {
+  days: [],
+  selectedDay: {}
+}
 
 // -------------------------------------------
 // REDUCER
@@ -151,7 +154,9 @@ const defaultState = []
 export default function(state = defaultState, action) {
   switch (action.type) {
     case GOT_TIMELINE:
-      return action.days
+      return {...state, days: action.days}
+    case GOT_DAY:
+      return {...state, selectedDay: action.day}
     default:
       return state
   }

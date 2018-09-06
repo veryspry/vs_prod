@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import DaysSelector from './DaysSelector'
-import { addDay, fetchTimeline, addCoffee, addMusic, addResource } from '../../redux/actions'
+// import { addDay, fetchTimeline, addCoffee, addMusic, addResource } from '../../redux/actions'
+import { addDay, fetchTimeline, addCoffee, addMusic, addResource } from '../../store'
 
 import { months } from './helperData'
 

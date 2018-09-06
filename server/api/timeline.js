@@ -73,14 +73,14 @@ router.get('/days', async (req, res, next) => {
 // ADD A DAY
 router.post('/add/day', async (req, res, next) => {
   try {
-    await Day.create({
+    const newDay = await Day.create({
       // date: req.body.date,
       month: req.body.month,
       day: req.body.day,
       year: req.body.year,
       focus: req.body.focus,
     })
-    res.status(201).send('Day added successfully!')
+    res.status(201).send(newDay)
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')

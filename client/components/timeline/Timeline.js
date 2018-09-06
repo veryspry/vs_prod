@@ -23,7 +23,7 @@ class Timeline extends React.Component {
 
   render () {
     const timeline = this.props.timeline
-    console.log(timeline);
+    console.log('inside render', timeline);
 
     if (timeline.length > 0) {
       return (
