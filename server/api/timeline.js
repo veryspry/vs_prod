@@ -40,7 +40,7 @@ router.get('/:id', async (req, res, next) => {
 // UPDATE SPECIFIC DAY
 router.put('/update/:id', async (req, res, next) => {
   try {
-    await Day.update({
+    const response = await Day.update({
       month: req.body.month,
       day: req.body.day,
       year: req.body.year,
@@ -48,9 +48,9 @@ router.put('/update/:id', async (req, res, next) => {
     }, {
       where: {id: req.params.id},
       returning: true,
-      plaing: true,
+      plain: true,
     })
-    res.status(201).send('Update complete!')
+    res.status(201).send(response)
   }
   catch (err) {
     next(err)
@@ -100,6 +100,24 @@ router.post('/add/coffee', async (req, res, next) => {
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')
+    next(err)
+  }
+})
+
+router.put('/update/coffee/:id', async (req, res, next) => {
+  try {
+    const response = await Coffee.update({
+      name: req.body.name,
+      roaster: req.body.roaster,
+      dayId: req.body.dayId,
+    }, {
+      where: {id: req.params.id},
+      returning: true,
+      plain: true,
+    })
+    res.status(200).send(response)
+  } catch(err) {
+    res.status(500).send('Sorry, unable to update this')
     next(err)
   }
 })

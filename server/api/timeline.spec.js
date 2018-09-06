@@ -52,9 +52,11 @@ describe('Timeline Routes', () => {
 
   describe('POST coffee, music & resource', () => {
 
-    it('POST /add/coffee', async () => {
+    let newDay
+
+    beforeEach(async () => {
       // create a new day
-      const newDay = await request(app)
+      newDay = await request(app)
         .post('/api/timeline/add/day')
         .send({
           month: 'September',
@@ -63,6 +65,9 @@ describe('Timeline Routes', () => {
           focus: 'just another day',
         })
         .expect(201)
+    })
+
+    it('POST /add/coffee', async () => {
       // add a coffee to the day
       const res = await request(app)
         .post('/api/timeline/add/coffee')
@@ -78,16 +83,6 @@ describe('Timeline Routes', () => {
     })
 
     it('POST /add/music', async () => {
-      // create a new day
-      const newDay = await request(app)
-        .post('/api/timeline/add/day')
-        .send({
-          month: 'September',
-          day: 23,
-          year: 2018,
-          focus: 'just another day',
-        })
-        .expect(201)
       // add some music for the day
       const res = await request(app)
         .post('/api/timeline/add/music')
@@ -104,16 +99,6 @@ describe('Timeline Routes', () => {
     })
 
     it('POST /add/resource', async () => {
-      // create a new day
-      const newDay = await request(app)
-        .post('/api/timeline/add/day')
-        .send({
-          month: 'September',
-          day: 23,
-          year: 2018,
-          focus: 'just another day',
-        })
-        .expect(201)
       // add a resource for the day
       const res = await request(app)
         .post('/api/timeline/add/resource')
@@ -123,10 +108,50 @@ describe('Timeline Routes', () => {
           dayId: newDay.body.id
         })
         .expect(201)
-      console.log('ADDED RESOURCE', res.body);
       const addedResource = await Resource.findById(res.body.id)
       expect(addedResource.dayId).to.be.equal(newDay.body.id)
     })
+  }) // end POST /api/timeline/coffee, music, resource
 
-  }) // end /api/timeline/coffee, music, resource
+  describe('PUT day, coffee, music, resource', () => {
+
+    let newDay
+
+    beforeEach(async () => {
+      // create a new day
+      newDay = await request(app)
+        .post('/api/timeline/add/day')
+        .send({
+          month: 'September',
+          day: 23,
+          year: 2018,
+          focus: 'just another day',
+        })
+    })
+
+    it('PUT /update/:id', async () => {
+
+      console.log("NEWDAY TEST", newDay.body);
+
+      // update the day
+      const res = await request(app)
+        .put(`/api/timeline/update/${newDay.body.id}`)
+        .send({
+          month: 'August',
+          day: 23,
+          year: 2018,
+          focus: 'just another day',
+        })
+        .expect(201)
+
+      // find the original day that we created
+      const updatedDay = await Day.findById(newDay.body.id)
+      expect(updatedDay.month).to.be.equal('August')
+    })
+
+    it('PUT updates a coffee', async () => {
+
+    })
+
+  }) // end PUT /api/timeline/ coffee, music, resource
 }) // end timeline routes
