@@ -136,6 +136,21 @@ describe('Timeline Routes', () => {
 
   describe('music routes', () => {
 
+        let newMusic
+
+        beforeEach(async () => {
+          // add a coffee to the day
+          newMusic = await request(app)
+            .post('/api/timeline/add/music')
+            .send({
+              album: 'a very good album',
+              song: 'this song is a test',
+              artist: 'another test',
+              dayId: newDay.body.id
+            })
+            .expect(201)
+        })
+
     it('POST /add/music', async () => {
       // add some music for the day
       const res = await request(app)
@@ -150,6 +165,30 @@ describe('Timeline Routes', () => {
       // find the music and make sure it was added to the correct day
       const addedMusic = await Music.findById(res.body.id)
       expect(addedMusic.dayId).to.be.equal(newDay.body.id)
+    })
+
+    it('PUT updates a music entry', async () => {
+      const res = await request(app)
+        .put(`/api/timeline/update/music/${newMusic.body.id}`)
+        .send({
+          album: 'a very different album name',
+          song: 'this song is a test',
+          artist: 'another test',
+          dayId: newDay.body.id
+        })
+        .expect(201)
+      // find the originally created coffee
+      const updatedMusic = await Music.findById(newMusic.body.id)
+      // check to see if it was updated
+      expect(updatedMusic.album).to.equal(res.body[1].album)
+    })
+
+    it('DELETE deletes a route', async () => {
+      const res = await request(app)
+        .delete(`/api/timeline/delete/music/${newMusic.body.id}`)
+        .expect(202)
+      const deletedMusic = await Music.findById(newMusic.body.id)
+      expect(deletedMusic).to.equal(null)
     })
 
   }) // end POST /api/timeline/coffee, music, resource

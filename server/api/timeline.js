@@ -2,6 +2,11 @@ const router = require('express').Router()
 const { Day, Resource, Coffee, Music } = require('../db/models')
 module.exports = router
 
+
+/* ---------------------------------------------------------------
+    DAYS ROUTES
+--------------------------------------------------------------- */
+
 // GET THE TIMELINE
 router.get('/', async (req, res, next) => {
   try {
@@ -88,6 +93,10 @@ router.post('/add/day', async (req, res, next) => {
   }
 })
 
+/* ---------------------------------------------------------------
+    COFFEE ROUTES
+--------------------------------------------------------------- */
+
 // ADD A COFFEE
 router.post('/add/coffee', async (req, res, next) => {
   try {
@@ -136,6 +145,10 @@ router.delete('/delete/coffee/:id', async (req, res, next) => {
   }
 })
 
+/* ---------------------------------------------------------------
+    MUSIC ROUTES
+--------------------------------------------------------------- */
+
 // ADD MUSIC --> /api/timeline/add/music
 router.post('/add/music', async (req, res, next) => {
   try {
@@ -152,6 +165,44 @@ router.post('/add/music', async (req, res, next) => {
     next(err)
   }
 })
+
+router.put('/update/music/:id', async (req, res, next) => {
+  try {
+    const response = await Music.update({
+      album: req.body.album,
+      song: req.body.song,
+      artist: req.body.artist,
+      dayId: req.body.dayId,
+    }, {
+      where: {id: req.params.id},
+      returning: true,
+      plain: true,
+    })
+    res.status(201).send(response)
+  } catch(err) {
+    res.status(500).send('Sorry, edit to add this')
+    next(err)
+  }
+
+  router.delete('/delete/music/:id', async (req, res, next) => {
+    try {
+      const response = await Music.destroy({
+        where: {
+          id: req.params.id
+        }
+      })
+      res.status(202).send('deleted!')
+    } catch(err) {
+      res.status(500).send('Sorry, unable to delete this')
+      next(err)
+    }
+  })
+
+})
+
+/* ---------------------------------------------------------------
+    RESOURCE ROUTES
+--------------------------------------------------------------- */
 
 // ADD RESOURCE --> /api/timeline/add/resource
 router.post('/add/resource', async (req, res, next) => {
