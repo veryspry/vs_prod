@@ -73,14 +73,14 @@ router.get('/days', async (req, res, next) => {
 // ADD A DAY
 router.post('/add/day', async (req, res, next) => {
   try {
-    const newDay = await Day.create({
+    const response = await Day.create({
       // date: req.body.date,
       month: req.body.month,
       day: req.body.day,
       year: req.body.year,
       focus: req.body.focus,
     })
-    res.status(201).send(newDay)
+    res.status(201).send(response)
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')
@@ -91,12 +91,12 @@ router.post('/add/day', async (req, res, next) => {
 // ADD A COFFEE
 router.post('/add/coffee', async (req, res, next) => {
   try {
-    await Coffee.create({
+    const response = await Coffee.create({
       name: req.body.name,
       roaster: req.body.roaster,
       dayId: req.body.dayId,
     })
-    res.status(201).send('Coffee added successfully!')
+    res.status(201).send(response)
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')
@@ -104,16 +104,16 @@ router.post('/add/coffee', async (req, res, next) => {
   }
 })
 
-// ADD MUSIC
+// ADD MUSIC --> /api/timeline/add/music
 router.post('/add/music', async (req, res, next) => {
   try {
-    await Music.create({
+    const response = await Music.create({
       album: req.body.album,
       song: req.body.song,
       artist: req.body.artist,
       dayId: req.body.dayId,
     })
-    res.status(201).send('Music added successfully!')
+    res.status(201).send(response)
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')
@@ -121,15 +121,15 @@ router.post('/add/music', async (req, res, next) => {
   }
 })
 
-// ADD RESOURCE
+// ADD RESOURCE --> /api/timeline/add/resource
 router.post('/add/resource', async (req, res, next) => {
   try {
-    await Resource.create({
+    const response = await Resource.create({
       name: req.body.name,
       resourceUrl: req.body.resourceUrl,
       dayId: req.body.dayId,
     })
-    res.status(201).send('Resource added successfully!')
+    res.status(201).send(response)
   }
   catch (err) {
     res.status(500).send('Sorry, unable to add this')
