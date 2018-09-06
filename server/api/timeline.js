@@ -115,7 +115,7 @@ router.put('/update/coffee/:id', async (req, res, next) => {
       returning: true,
       plain: true,
     })
-    res.status(200).send(response)
+    res.status(201).send(response)
   } catch(err) {
     res.status(500).send('Sorry, unable to update this')
     next(err)
