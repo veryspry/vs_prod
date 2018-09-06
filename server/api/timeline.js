@@ -122,6 +122,20 @@ router.put('/update/coffee/:id', async (req, res, next) => {
   }
 })
 
+router.delete('/delete/coffee/:id', async (req, res, next) => {
+  try {
+    const response = await Coffee.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res.status(202).send('deleted!')
+  } catch(err) {
+    res.status(500).send('Sorry, unable to delete this')
+    next(err)
+  }
+})
+
 // ADD MUSIC --> /api/timeline/add/music
 router.post('/add/music', async (req, res, next) => {
   try {

@@ -56,9 +56,9 @@ describe('Timeline Routes', () => {
 
     it('GET gets a day', async () => {
       const res = await request(app)
-        .get('/api/timeline/1')
+        .get(`/api/timeline/${newDay.body.id}`)
         .expect(200)
-        expect(res.body.focus).to.equal('I dont even know anymore')
+        expect(res.body.focus).to.equal('just another day')
     })
 
     it('PUT updates a day', async () => {
@@ -85,7 +85,7 @@ describe('Timeline Routes', () => {
 
     beforeEach(async () => {
       // add a coffee to the day
-      const res = await request(app)
+      newCoffee = await request(app)
         .post('/api/timeline/add/coffee')
         .send({
           name: 'Ehitopia Guji Uraga',
@@ -112,15 +112,25 @@ describe('Timeline Routes', () => {
 
     it('PUT updates a coffee', async () => {
       const res = await request(app)
-        .put(`/api/timeline/add/coffee${newCoffee.body.id}`)
+        .put(`/api/timeline/update/coffee/${newCoffee.body.id}`)
         .send({
           name: 'Ehitopia Guji Uraga',
           roaster: 'roasted!',
           dayId: newDay.body.id
         })
         .expect(201)
+      // find the originally created coffee
       const createdCoffee = await Coffee.findById(newCoffee.body.id)
-      expect(createdCoffee.body.roaster).to.equal('roasted!')
+      // check to see if it was updated
+      expect(createdCoffee.roaster).to.equal('roasted!')
+    })
+
+    it('DELETE deletes a route', async () => {
+      const res = await request(app)
+        .delete(`/api/timeline/delete/coffee/${newCoffee.body.id}`)
+        .expect(202)
+      const deletedCoffee = await Coffee.findById(newCoffee.body.id)
+      expect(deletedCoffee).to.equal(null)
     })
   }) // end coffee routes
 
