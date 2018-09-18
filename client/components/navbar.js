@@ -26,7 +26,7 @@ const Navbar = () => {
 
         {/* <li className="nav-pic"><img src="/img/Headshots/square/IMG_9263_sq.jpg"/></li> */}
       </ul>
-      <div className="nav-pic"><img src="/img/Headshots/square/IMG_9263_sq.jpg"/></div>
+      <div className="nav-pic"><img src="/img/IMG_9263_sq.jpg"/></div>
     </nav>
   )
 }
