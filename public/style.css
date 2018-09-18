@@ -13,6 +13,8 @@ html {
 body {
   /* background: rgba(240,240,255,.7); */
   background: rgba(255,255,255,.7);
+/*    background: rgba(0,0,0);*/
+
 }
 
 a {
@@ -24,21 +26,50 @@ a:hover {
   text-decoration: underline;
 }
 
+/* ----------------------------------------------
+    HOME STYLING
+---------------------------------------------- */
+
 nav {
+  display: flex;
+  flex-direction: row;
+
   width: 100%;
-  text-align: center;
+  /* text-align: center; */
   margin: 0;
+  padding: 0 auto;
   position: fixed;
   top:0;
   z-index: 1;
-  background-color: black;
-  /* height: 200px; */
-  /* clip-path: polygon(0 0, 4000px 0, 4000px 87%, 0 100%); */
-  /* hide navbar until we scroll down the page */
-  /* transform: translateY(var(--element-height)); */
-  /* --element-height: -72px; */
-  /* transition: transform 0.5s; */
+  /* background-color: lightgrey; */
+  background-color: rgba(255,255,255,1);
+
+  /* box-shadow: .25px .25px 7px lightgrey; */
 }
+
+.social-icon,
+.nav-icon {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.social-icon a,
+.nav-icon a {
+  color: black;
+}
+
+.nav-pic {
+  margin: 20px 40px auto auto;
+  /* position: right; */
+}
+
+.nav-pic img {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+}
+
+/* _______________________ */
 
 nav li {
   list-style: none;
@@ -50,18 +81,19 @@ nav li {
 nav a {
   text-decoration: none;
   color: white;
-  font-size: 20px;
-  font-weight: 100;
+  font-size: 30px;
+  font-weight: 200;
   margin: 0 20px;
 }
 
 .nav-icon a:hover {
-  color: #ff0000;
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition: .5s;
+  color: rgba(0,150,200,1);
+  /* color: #cc2d8a; */
+  -o-transition:.25s;
+  -ms-transition:.25s;
+  -moz-transition:.25s;
+  -webkit-transition:.25s;
+  transition: .25s;
 }
 /*
 .social-icon {
@@ -72,11 +104,11 @@ nav a {
 .fa-twitter,
 .fa-github,
 .fa-instagram {
-  -o-transition:.5s;
-  -ms-transition:.5s;
-  -moz-transition:.5s;
-  -webkit-transition:.5s;
-  transition: .5s;
+  -o-transition:.25s;
+  -ms-transition:.25s;
+  -moz-transition:.25s;
+  -webkit-transition:.25s;
+  transition: .25s;
 }
 
 .fa-twitter,
@@ -115,8 +147,11 @@ nav a {
 ---------------------------------------------- */
 
 .home {
+    /* display: flex; */
+    /* flex-direction: row; */
     overflow-x: hidden; /* needed because hiding the hamburger menu on the right side is not perfect,  */
-    background-image: url('./img/index_background.jpg');
+    /* background-image: url('./img/Headshots/square/IMG_9263_sq.jpg'); */
+    /* background-size: 100px auto; */
     height: 100vh;
     margin: 0;
     background-repeat: no-repeat;
@@ -128,6 +163,17 @@ nav a {
     -o-background-size: cover;
     letter-spacing: 1px;
 }
+
+/* .picture-right {
+  background-image: url('./img/Headshots/square/IMG_9263_sq.jpg');
+  height: 100vh;
+  margin: 0;
+  width: 50vw;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-attachment: fixed;
+  background-size: contain;
+} */
 
 /* Make sure no content shows before user begins scrolling */
 #top-of-page {
@@ -212,7 +258,8 @@ nav a {
 }
 
 .intro h2 {
-  color: #fff;
+  /* color: #fff; */
+  color: rgba(0, 70, 203, 1);
   font-size: 40px;
   font-weight: 100;
   /* text-shadow: 2px 2px 2px black; */
@@ -221,7 +268,7 @@ nav a {
   max-width: 900px;
 }
 .intro div {
-  margin: 0 0 0px 0;
+  margin: 350px 0 0px 0;
   padding: 0;
 }
 

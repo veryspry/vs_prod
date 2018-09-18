@@ -4,7 +4,7 @@ import React from 'react'
 const Navbar = () => {
   return (
     <nav id="large-navigation">
-      <ul id="#nav-items">
+      <ul>
         <li className="nav-icon"><a href="/">Home</a></li>
         <li className="nav-icon"><a href="/timeline">Blog</a></li>
         {/* <li className="nav-icon"><a href="#music">Music</a></li> */}
@@ -23,7 +23,10 @@ const Navbar = () => {
           <a href="https://www.instagram.com/veryspry/" target="_blank" rel="noopener noreferrer" >
           <i className="fa fa-instagram" /></a>
         </li>
+
+        {/* <li className="nav-pic"><img src="/img/Headshots/square/IMG_9263_sq.jpg"/></li> */}
       </ul>
+      <div className="nav-pic"><img src="/img/Headshots/square/IMG_9263_sq.jpg"/></div>
     </nav>
   )
 }

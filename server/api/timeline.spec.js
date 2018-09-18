@@ -241,6 +241,6 @@ describe('Timeline Routes', () => {
         .expect(202)
       const deletedResource = await Resource.findById(newResource.body.id)
       expect(deletedResource).to.equal(null)
-    })
+    }) 
   }) // end PUT /api/timeline/ coffee, music, resource
 }) // end timeline routes
