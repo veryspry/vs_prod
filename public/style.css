@@ -27,24 +27,57 @@ a:hover {
 }
 
 /* ----------------------------------------------
-    HOME STYLING
+    SMALL NAV STYLING
 ---------------------------------------------- */
 
-nav {
+.small-navigation {
+  display: flex;
+  flex-direction: column;
+  /* text-align: center; */
+  margin: 0 auto;
+}
+
+.small-navigation ul {
+  /* text-align: center; */
+  margin: 0 auto;
+  padding: 0;
+}
+
+.small-navigation ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.small-nav-pic {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+}
+
+.small-nav-pic img {
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+}
+
+/* ----------------------------------------------
+    LARGE NAV STYLING
+---------------------------------------------- */
+
+.large-navigation {
   display: flex;
   flex-direction: row;
 
-  width: 100%;
+  width: 97%;
   /* text-align: center; */
   margin: 0;
   padding: 0 auto;
   position: fixed;
   top:0;
-  z-index: 1;
-  /* background-color: lightgrey; */
+  /* z-index: 1; */
   background-color: rgba(255,255,255,1);
 
-  /* box-shadow: .25px .25px 7px lightgrey; */
+  /* box-shadow: .25px .25px 20px whitesmoke; */
 }
 
 .social-icon,
@@ -147,12 +180,6 @@ nav a {
 ---------------------------------------------- */
 
 .home {
-    /* display: flex; */
-    /* flex-direction: row; */
-    overflow-x: hidden; /* needed because hiding the hamburger menu on the right side is not perfect,  */
-    /* background-image: url('./img/Headshots/square/IMG_9263_sq.jpg'); */
-    /* background-size: 100px auto; */
-    height: 100vh;
     margin: 0;
     background-repeat: no-repeat;
     background-position: center top;
@@ -163,17 +190,6 @@ nav a {
     -o-background-size: cover;
     letter-spacing: 1px;
 }
-
-/* .picture-right {
-  background-image: url('./img/Headshots/square/IMG_9263_sq.jpg');
-  height: 100vh;
-  margin: 0;
-  width: 50vw;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-attachment: fixed;
-  background-size: contain;
-} */
 
 /* Make sure no content shows before user begins scrolling */
 #top-of-page {
@@ -257,8 +273,15 @@ nav a {
   display: inline-block;
 }
 
+.small-top-margin {
+  margin: 100px 0 0 0;
+}
+
+.large-top-margin {
+  margin: 300px 0 0 0;
+}
+
 .intro h2 {
-  /* color: #fff; */
   color: rgba(0, 70, 203, 1);
   font-size: 40px;
   font-weight: 100;
@@ -268,7 +291,7 @@ nav a {
   max-width: 900px;
 }
 .intro div {
-  margin: 350px 0 0px 0;
+  /* margin: 300px 0 0px 0; */
   padding: 0;
 }
 
@@ -288,7 +311,6 @@ canvas {
 ---------------------------------------------- */
 
 .timeline-wrapper {
-  margin: 200px 0 0 0;
   padding: 0;
 }
 
@@ -406,24 +428,6 @@ canvas {
 .login-form-button-wrapper {
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* HOLD DOWN BOTTOM */

@@ -14,22 +14,32 @@ import Resources from './Resources'
 
 class Timeline extends React.Component {
 
-  async componentDidMount() {
-    const data = await this.props.fetchTimeline()
-
-    console.log('data!!!!!!', data)
+  state = {
+    width: window.innerWidth,
   }
 
+  async componentDidMount() {
+    // get the timeline
+    const data = await this.props.fetchTimeline()
+    // get the window size
+    window.addEventListener('resize', this.getWidth)
+  }
+
+  getWidth = () => {
+    this.setState({width: window.innerWidth})
+  }
 
   render () {
     const timeline = this.props.timeline.days
-    console.log('inside render', timeline);
 
     if (timeline.length > 0) {
       return (
-        <div className="timeline-wrapper">
+        <div className={
+          this.state.width > 800
+          ? 'timeline-wrapper large-top-margin'
+          : 'timeline-wrapper small-top-margin'
+          }>
           {timeline.map(day => {
-            console.log('the day info', day);
             return (
               <div key={day.id}>
                 <div  className="day-wrapper">
