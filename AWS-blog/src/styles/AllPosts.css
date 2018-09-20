@@ -1,0 +1,6 @@
+.post-wrapper {
+  background-color: lightgrey;
+  max-width: 500px;
+  min-width: 70vw;
+  margin: 0 auto;
+}
