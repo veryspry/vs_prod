@@ -37,9 +37,7 @@ class PictureLanding extends React.Component {
           <div>
             <h2>My main motivation is to build things people love. Gluing together creativity and resourcefulness to make something truly useful.</h2>
           </div>
-
-
-
+          
         </div>
         {/* <div className="picture-right" /> */}
       </div>

@@ -140,7 +140,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Footer = function Footer() {
   return _react.default.createElement("div", {
     className: "footer"
-  }, _react.default.createElement("h3", null, "This site is built with Node, React and so much \u2764\uFE0F"));
+  }, _react.default.createElement("h3", null, "This site is built with Node, React and so much \u2764\uFE0F", _react.default.createElement("br", null), "View the source ", _react.default.createElement("a", {
+    href: "https://github.com/veryspry/vs_sept_2018",
+    target: "_blank"
+  }, "here")));
 };
 
 var _default = Footer;
