@@ -614,7 +614,9 @@ function (_React$Component) {
         className: "home"
       }, _react.default.createElement("div", {
         className: this.state.width > 800 ? 'intro large-top-margin' : 'intro small-top-margin'
-      }, _react.default.createElement("div", null, _react.default.createElement("h2", null, "Hi, I\u2019m Matt! I am a Fullstack Engineer with a keen eye for design and a knack for creativity. I used to be a professional musician but realized that I really loved taking on the daily challenges that coding presents. ")), _react.default.createElement("div", null, _react.default.createElement("h2", null, "As a musician, I learned that creating something shouldn\u2019t be hindered by what you have to work with. I embrace the tools at hand and work to design and build something beautiful. I work in Node, Express, GraphQl, AWS, Postgres, React, React-Native, mocha.js, chai.js, plain old JavaScript & CSS. (The list continues to grow.) I\u2019m also a songwriter and music theory nerd. (Guitar & pedal steel if you're interested.)")), _react.default.createElement("div", null, _react.default.createElement("h2", null, "My main motivation is to build things people love. Gluing together creativity and resourcefulness to make something truly useful."))));
+      }, _react.default.createElement("div", null, _react.default.createElement("h2", null, "Hi, I\u2019m Matt! I am a Fullstack Engineer with a keen eye for design and a knack for creativity. I used to be a professional musician but realized that I really loved taking on the daily challenges that coding presents. ")), _react.default.createElement("div", null, _react.default.createElement("h2", null, "As a musician, I learned that creating something shouldn\u2019t be hindered by what you have to work with. I embrace the tools at hand and work to design and build something beautiful. I work in Node, Express, GraphQl, AWS, Postgres, React, React-Native, mocha.js, chai.js, plain old JavaScript & CSS. (The list continues to grow.) I\u2019m also a songwriter and music theory nerd. (Guitar & pedal steel if you're interested.)")), _react.default.createElement("div", null, _react.default.createElement("h2", null, "My main motivation is to build things people love. Gluing together creativity and resourcefulness to make something truly useful.")), _react.default.createElement("div", null, _react.default.createElement("h2", null, "I'd love to hear from you! Send me an ", _react.default.createElement("a", {
+        href: "mailto:ehlinger.matt@gmail.com"
+      }, "email"), " and lets chat."))));
     }
   }]);
 
@@ -1781,7 +1783,9 @@ function (_React$Component) {
       if (timeline.length > 0) {
         return _react.default.createElement("div", {
           className: this.state.width > 800 ? 'timeline-wrapper large-top-margin' : 'timeline-wrapper small-top-margin'
-        }, timeline.map(function (day) {
+        }, _react.default.createElement("div", {
+          className: "timeline-header"
+        }, _react.default.createElement("h1", null, "\uD83D\uDEA7 This part of the page is still under construction \uD83D\uDEA7"), _react.default.createElement("br", null), _react.default.createElement("h2", null, "It's live because I wanted to show it to some friends", _react.default.createElement("br", null), "and what easier way to share than to push it live? \uD83E\uDD37")), timeline.map(function (day) {
           return _react.default.createElement("div", {
             key: day.id
           }, _react.default.createElement("div", {

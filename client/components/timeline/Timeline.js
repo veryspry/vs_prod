@@ -39,6 +39,11 @@ class Timeline extends React.Component {
           ? 'timeline-wrapper large-top-margin'
           : 'timeline-wrapper small-top-margin'
           }>
+          <div className="timeline-header">
+            <h1>🚧 This part of the page is still under construction 🚧</h1><br/>
+            <h2>It's live because I wanted to show it to some friends<br/>
+            and what easier way to share than to push it live? 🤷</h2>
+          </div>
           {timeline.map(day => {
             return (
               <div key={day.id}>

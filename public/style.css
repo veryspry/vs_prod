@@ -296,7 +296,7 @@ nav a {
 .intro h2 {
   color: rgba(0, 70, 203, 1);
   font-size: 40px;
-  font-weight: 100;
+  font-weight: 200;
   /* text-shadow: 2px 2px 2px black; */
   float: left;
   padding:0vh 5vw 0vh 5vw;
@@ -305,6 +305,10 @@ nav a {
 .intro div {
   /* margin: 300px 0 0px 0; */
   padding: 0;
+}
+
+.intro a {
+  color: rgba(0,200,250,1);
 }
 
 /* ----------------------------------------------
@@ -322,8 +326,29 @@ canvas {
     TIMELINE STYLING
 ---------------------------------------------- */
 
+
 .timeline-wrapper {
   padding: 0;
+}
+
+.timeline-header {
+  text-align: center;
+  margin: 30px;
+}
+
+.timeline-header h1,
+.timeline-header h2 {
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-header h1 {
+  font-size: 40px;
+}
+
+.timeline-header h2 {
+  font-size: 25px;
 }
 
 .day-wrapper {
