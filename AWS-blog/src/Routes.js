@@ -9,10 +9,10 @@ import SinglePost from './SinglePost'
 const Routes = () => {
   return (
     <Switch>
-      <Redirect exact path="/" to="/posts" />
-      <Route exact path="/posts" component={AllPosts} />
-      <Route exact path="/posts/add" component={CreatePost} />
-      <Route exact path="/posts/:postid" component={SinglePost} />
+      <Redirect exact path="/demos/awsblog" to="/posts" />
+      <Route exact path="/demos/awsblog/posts" component={AllPosts} />
+      <Route exact path="/demos/awsblog/posts/add" component={CreatePost} />
+      <Route exact path="/demos/awsblog/posts/:postid" component={SinglePost} />
     </Switch>
   )
 }

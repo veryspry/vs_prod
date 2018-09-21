@@ -2,6 +2,8 @@
   "name": "jr-eng-project",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/awsblog",
+  "homepage": "/awsblog",
   "dependencies": {
     "apollo-boost": "^0.1.16",
     "aws-appsync": "^1.3.4",

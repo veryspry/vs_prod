@@ -21,7 +21,7 @@ const PostNameList = () => {
           return data.listPosts.items.map(({ id, title }) => {
             return (
               <div key={id}>
-                <Link to={`/posts/${id}`} >
+                <Link to={`/demos/awsblog/posts/${id}`} >
                   {title}
                 </Link>
               </div>

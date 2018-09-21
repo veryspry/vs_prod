@@ -11,8 +11,8 @@ const Header = () => {
         <h1 className="App-title">Welcome to this blog!</h1>
       </div>
       <nav className="nav-wrapper">
-        <li><Link to="/posts" >All Posts</Link></li>
-        <li><Link to="/posts/add" >Write New Post</Link></li>
+        <li><Link to="/demos/awsblog/posts" >All Posts</Link></li>
+        <li><Link to="/demos/awsblog/posts/add" >Write New Post</Link></li>
       </nav>
     </header>
   );
