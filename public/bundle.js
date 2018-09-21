@@ -2296,11 +2296,15 @@ function (_Component) {
         exact: true,
         path: "/timeline/update/:id",
         component: _components.Update
+      }), _react.default.createElement(_reactRouterDom.Route, {
+        exact: true,
+        path: "/demos/awsblog",
+        component: _components.AWSBlog
       }), isLoggedIn && _react.default.createElement(_reactRouterDom.Switch, null, _react.default.createElement(_reactRouterDom.Route, {
         path: "/home",
         component: _components.UserHome
       })), _react.default.createElement(_reactRouterDom.Route, {
-        component: _components.Login
+        component: _components.PictureLanding
       }));
     }
   }]);
@@ -45223,8 +45227,6 @@ module.exports = invariant;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- *
- * @providesModule warning
  */
 
 
@@ -46862,8 +46864,6 @@ function pathToRegexp (path, keys, options) {
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- *
- * @providesModule warning
  */
 
 
