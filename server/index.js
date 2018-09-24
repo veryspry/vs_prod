@@ -68,10 +68,8 @@ const createApp = () => {
   app.use('/api', require('./api'))
 
   // static file-serving middleware
-  // serve up the AWS blog demo app
-  app.use('/awsblog', express.static(path.join(__dirname, '..', 'AWS-blog/build')))
   // serve up the main app
-  app.use(express.static(path.join(__dirname, '..', 'public')))
+  app.use('/', express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
@@ -85,11 +83,8 @@ const createApp = () => {
   })
 
   // sends index.html
-  app.use('awsblog/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'AWS-blog/build/index.html'))
-  })
-  app.use('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
   })
 
   // error handling endware
