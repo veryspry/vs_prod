@@ -35,8 +35,6 @@ class Navbar extends React.Component {
               <a href="https://www.instagram.com/veryspry/" target="_blank" rel="noopener noreferrer" >
               <i className="fa fa-instagram" /></a>
             </li>
-
-            {/* <li className="nav-pic"><img src="/img/Headshots/square/IMG_9263_sq.jpg"/></li> */}
           </ul>
           <div className="nav-pic"><img src="/img/IMG_9263_sq.jpg"/></div>
         </nav>

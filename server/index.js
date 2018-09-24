@@ -69,7 +69,7 @@ const createApp = () => {
 
   // static file-serving middleware
   // serve up the main app
-  app.use('/', express.static(path.join(__dirname, '..', 'public')))
+  app.use(express.static(path.join(__dirname, '..', 'public')))
 
   // any remaining requests with an extension (.js, .css, etc.) send 404
   app.use((req, res, next) => {
