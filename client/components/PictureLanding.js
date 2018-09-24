@@ -18,11 +18,6 @@ class PictureLanding extends React.Component {
   render() {
     return (
       <div className="home" >
-
-        {/* <div id="top-of-page" name="top-of-page">
-          <h1>Hey, I'm Matt!</h1>
-        </div> */}
-
         <div className={
           this.state.width > 800
           ? 'intro large-top-margin'
@@ -43,11 +38,9 @@ class PictureLanding extends React.Component {
           </div>
 
         </div>
-        {/* <div className="picture-right" /> */}
       </div>
     )
   }
-
 }
 
 

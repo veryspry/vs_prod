@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, UserHome, Timeline, AddDay, Home, PictureLanding, Update, AWSBlog} from './components'
+import {Login, Signup, UserHome, Timeline, AddDay, PictureLanding, Update} from './components'
 import {me} from './store'
 
 /**
@@ -24,8 +24,7 @@ class Routes extends Component {
         <Route path="/signup" component={Signup} />
         <Route exact path="/timeline" component={Timeline} />
         <Route exact path="/timeline/add" component={AddDay} />
-        <Route exact path="/timeline/update/:id" component={Update} />
-        <Route exact path="/demos/awsblog" component={AWSBlog} />
+        <Route path="/timeline/update/:id" component={Update} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
